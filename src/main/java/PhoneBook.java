@@ -5,7 +5,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class PhoneBook {
-    private Map<String, String> book = new HashMap<>();
+    private final Map<String, String> book = new HashMap<>();
     private int freq;
 
     public int add(String name, String number){
