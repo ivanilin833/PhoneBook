@@ -1,6 +1,8 @@
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class PhoneBook {
     private Map<String, String> book = new HashMap<>();
@@ -33,7 +35,10 @@ public class PhoneBook {
             return result;
     }
 
-    public String[] printAllNames(){
-        return null;
+    public List<String> printAllNames(){
+        return book.keySet()
+                .stream()
+                .sorted()
+                .collect(Collectors.toList());
     }
 }
