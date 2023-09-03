@@ -9,4 +9,8 @@ public class PhoneBook {
         book.put(name,number);
         return freq+=1;
     }
+
+    public String findByNumber(String number){
+        return null;
+    }
 }

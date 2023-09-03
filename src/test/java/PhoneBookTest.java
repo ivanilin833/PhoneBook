@@ -1,12 +1,13 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class PhoneBookTest {
-    private static PhoneBook phoneBook;
+    private PhoneBook phoneBook;
 
-    @BeforeAll
-    public static void init(){
+    @BeforeEach
+    public void init(){
         phoneBook = new PhoneBook();
     }
 
@@ -20,5 +21,31 @@ public class PhoneBookTest {
         freq = phoneBook.add("Misha", "8(910)123-11-22");
         //assert
         Assertions.assertEquals(3, freq);
+    }
+
+    @Test
+    public void testFindByNumber(){
+        //arrange
+        String name = "Anna";
+        String number = "8(920)723-89-72";
+        String actual;
+        //act
+        phoneBook.add(name, number);
+        actual = phoneBook.findByNumber(number);
+        //assert
+        Assertions.assertEquals(name, actual);
+    }
+
+    @Test
+    public void testFindByNumber_IllegalArgument_throwsException(){
+        //arrange
+        String name = "Anna";
+        String number = "8(920)723-89-72";
+        String numberTwo = "8(920)723-89-72";
+        //act
+        phoneBook.add(name, number);
+        //assert
+        Assertions.assertThrows(IllegalArgumentException.class,
+                ()-> phoneBook.findByNumber(numberTwo));
     }
 }
