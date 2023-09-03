@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class PhoneBook {
     private Map<String, String> book = new HashMap<>();
@@ -11,6 +12,16 @@ public class PhoneBook {
     }
 
     public String findByNumber(String number){
-        return null;
+        Optional<String> result = book.entrySet()
+                .stream()
+                .filter(entry -> number.equals(entry.getValue()))
+                .map(Map.Entry::getKey)
+                .findFirst();
+
+        if(result.isPresent()){
+            return result.get();
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 }

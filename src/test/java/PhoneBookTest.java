@@ -41,7 +41,7 @@ public class PhoneBookTest {
         //arrange
         String name = "Anna";
         String number = "8(920)723-89-72";
-        String numberTwo = "8(920)723-89-72";
+        String numberTwo = "8(920)723-88-72";
         //act
         phoneBook.add(name, number);
         //assert
