@@ -57,7 +57,7 @@ public class PhoneBookTest {
         String actual;
         //act
         phoneBook.add(name, number);
-        actual = phoneBook.findByName(number);
+        actual = phoneBook.findByName(name);
         //assert
         Assertions.assertEquals(number, actual);
     }

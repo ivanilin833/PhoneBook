@@ -26,6 +26,10 @@ public class PhoneBook {
     }
 
     public String findByName(String name){
-        return null;
+        String result = book.getOrDefault(name, "empty");
+        if(result.equals("empty")){
+            throw new IllegalArgumentException();
+        } else
+            return result;
     }
 }
