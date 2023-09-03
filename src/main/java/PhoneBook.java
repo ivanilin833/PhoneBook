@@ -32,4 +32,8 @@ public class PhoneBook {
         } else
             return result;
     }
+
+    public String[] printAllNames(){
+        return null;
+    }
 }

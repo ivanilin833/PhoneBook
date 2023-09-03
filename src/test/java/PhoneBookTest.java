@@ -74,4 +74,17 @@ public class PhoneBookTest {
         Assertions.assertThrows(IllegalArgumentException.class,
                 ()-> phoneBook.findByName(nameTwo));
     }
+
+    @Test
+    public void testPrintAllNames(){
+        //arrange
+        String[] names = new String[]{"Anna", "Boris", "Ivan"};
+        phoneBook.add("Ivan", "8(963)721-11-22");
+        phoneBook.add("Anna", "8(920)723-89-72");
+        phoneBook.add("Boris", "8(911)723-89-72");
+        //act
+        String[] result = phoneBook.printAllNames();
+        //assert
+        Assertions.assertEquals(names,result);
+    }
 }
